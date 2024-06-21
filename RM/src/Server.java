@@ -14,7 +14,6 @@ public class Server {
     // Mapa za čuvanje bodova svakog igrača
     Map<String, Integer> bodovanje = new HashMap<>();
 
-    // Lista sa pitanjima za kviz
     private List<String> questions = new ArrayList<>();
 
     // Indeks trenutnog pitanja u listi
@@ -77,10 +76,8 @@ public class Server {
 
     // Metoda za pokretanje servera i osluškivanje novih konekcija
     public void execute() {
-
         try (ServerSocket ss = new ServerSocket(1000)) {
             System.out.println("Osluskuje...");
-
             while (true) {
                 Socket s = ss.accept();
                 System.out.println("Klijent primljen!");
@@ -179,7 +176,6 @@ public class Server {
                 timer = null;
             }
             sendNextQuestion();
-
         } else {
             // Smanjenje bodova za netačan odgovor
             noviBodovi = handler.addBodovi(-3);
@@ -210,11 +206,9 @@ public class Server {
             if (pitanjaBrojac > 0 && pitanjaBrojac % 5 == 0 && handlers.size() > 1) {
                 eliminateLowestScorer(handlers);
             }
-
             if (handlers.size() <= 1) {
                 return; // Kviz je završen
             }
-
             // Slanje novog pitanja
             String question = questions.get(currentQuestionIndex);
             for (ClientHandler handler : handlers) {
@@ -251,7 +245,6 @@ public class Server {
         for(ClientHandler handleri:sviHandleri){
             handleri.sendMessage("ONEMOGUCI /o");
         }
-
     }
 
     // Metoda za omogućavanje odgovaranja jednom klijentu
@@ -267,8 +260,6 @@ public class Server {
                 handleri.sendMessage("ONEMOGUCI_ODGOVORE /o");
             }
         }
-
-
     }
 
     // Metoda za eliminaciju igrača sa najmanjim brojem bodova
@@ -312,7 +303,6 @@ public class Server {
             handlers.get(0).closeConnection();
         }
     }
-
     // Glavna metoda koja pokreće server
     public static void main(String[] args) {
         new Server().execute();

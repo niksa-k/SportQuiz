@@ -25,16 +25,12 @@ public class Client extends Thread{
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 
     public void run (){
-
-
         try {
             String poruka;
             while(true) {
@@ -80,21 +76,14 @@ public class Client extends Thread{
                 }if(akcija[0].equals("OMOGUCI_ODGOVORE")){
                     Platform.runLater(()->quiz.omoguciTaster());
                 }
-
-
-
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public void sendUsername(String username){
-
         writer.println(username);
-
     }
 
     public void sendMessage(String odgovor){
@@ -114,5 +103,4 @@ public class Client extends Thread{
     public String getUsername(){
         return this.username;
     }
-
 }

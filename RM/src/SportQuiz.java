@@ -114,7 +114,6 @@ public class SportQuiz extends Application {
             Stage primaryStage = (Stage) lblPitanje.getScene().getWindow();
             primaryStage.setScene(winScene);
         });
-
     }
     public void startGame() {
 
@@ -185,7 +184,6 @@ public class SportQuiz extends Application {
         client.sendMessage("TIME_UP /");
         onemoguciOdgovore();
         onemoguciTaster();
-
     }
 
     public void azurirajBodove(String username, int bodovi) {
@@ -227,8 +225,6 @@ public class SportQuiz extends Application {
         igracLabelMap.put(niz[1],lblDrugiIgrac);
         igracLabelMap.put(niz[2],lblTreciIgrac);
         igracLabelMap.put(niz[3],lblCetvrtiIgrac);
-
-
     }
 
     public void omoguciTaster(){
@@ -270,7 +266,6 @@ public class SportQuiz extends Application {
                 lblBodovi.setText("0");
                 lblBodovi.getStyleClass().add("label-elimination");
             });
-
         }
     }
 }

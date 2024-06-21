@@ -18,7 +18,6 @@ public class ClientHandler extends Thread{
     public ClientHandler(Socket s, Server server) throws IOException {
         this.s = s;
         this.server = server;
-
         try {
             writer = new PrintWriter(s.getOutputStream(), true);
             reader = new BufferedReader(new InputStreamReader(s.getInputStream()));
