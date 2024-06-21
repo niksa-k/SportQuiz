@@ -6,7 +6,7 @@ import java.net.Socket;
 
 public class ClientHandler extends Thread{
 
-    Socket s; // Soket za komunikaciju sa klijentomA
+    Socket s; // Soket za komunikaciju sa klijentom
     PrintWriter writer; // Objekat za slanje poruka klijentu
     BufferedReader reader; // Objekat za čitanje poruka od klijenta
 
